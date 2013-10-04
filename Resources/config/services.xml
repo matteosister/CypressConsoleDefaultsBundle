@@ -1,0 +1,24 @@
+<?xml version="1.0" ?>
+
+<container xmlns="http://symfony.com/schema/dic/services"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+
+
+    <parameters>
+        <parameter key="cypress_console_defaults.console.command_defaults.class">Cypress\ConsoleDefaultsBundle\Console\CommandDefaults</parameter>
+        <parameter key="cypress_console_defaults.listener.command_listener.class">Cypress\ConsoleDefaultsBundle\Listener\ConsoleListener</parameter>
+    </parameters>
+
+    <services>
+        <service id="cypress_console_defaults.console.command_defaults" class="%cypress_console_defaults.console.command_defaults.class%">
+            <argument>%cypress_console_defaults.console.command_defaults.config%</argument>
+        </service>
+
+        <service id="cypress_console_defaults.listener.command_listener" class="%cypress_console_defaults.listener.command_listener.class%">
+            <argument type="service" id="cypress_console_defaults.console.command_defaults" />
+            <tag name="kernel.event_listener" event="console.command" method="onConsoleCommand" />
+        </service>
+    </services>
+
+</container>
