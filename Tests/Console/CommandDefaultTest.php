@@ -28,4 +28,14 @@ class CommandDefaultTest extends \PHPUnit_Framework_TestCase
         $cd = new CommandDefault('test', array('params' => array()));
         $this->assertTrue($cd->isEmpty());
     }
-} 
+
+    public function testName()
+    {
+        $this->assertEquals('test', $this->commandDefault->getName());
+    }
+
+    public function testParams()
+    {
+        $this->assertEquals(array('--one', '--env=test'), $this->commandDefault->getParameters());
+    }
+}

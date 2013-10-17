@@ -56,4 +56,4 @@ class CommandDefaults
             $input->setOption($option['name'], $option['value']);
         }
     }
-} 
+}

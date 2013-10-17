@@ -59,4 +59,4 @@ class ConsoleListener
             sprintf('--- proceeding with defaults: <comment>%s</comment>', implode(', ', $defaults))
         );
     }
-} 
+}
