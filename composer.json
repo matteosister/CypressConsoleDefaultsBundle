@@ -12,10 +12,10 @@
     "require-dev": {
         "phpunit/phpunit": "~3.7.28"
     },
-    "license": "MIT",
+    "license": "LGPL-3.0+",
     "authors": [
         {
-            "name": "Matteo",
+            "name": "Matteo Giachino",
             "email": "matteog@gmail.com"
         }
     ],
