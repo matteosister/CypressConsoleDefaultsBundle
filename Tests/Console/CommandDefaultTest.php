@@ -19,13 +19,13 @@ class CommandDefaultTest extends \PHPUnit_Framework_TestCase
 
     public function setUp()
     {
-        $this->commandDefault = new CommandDefault('test', array('--one', '--env=test'));
+        $this->commandDefault = new CommandDefault('test', array('params' => array('--one', '--env=test')));
     }
 
     public function testIsEmpty()
     {
         $this->assertFalse($this->commandDefault->isEmpty());
-        $cd = new CommandDefault('test', array());
+        $cd = new CommandDefault('test', array('params' => array()));
         $this->assertTrue($cd->isEmpty());
     }
 } 
