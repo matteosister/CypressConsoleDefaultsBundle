@@ -42,7 +42,7 @@ cypress_console_defaults:
 
 the next time you will call one of the defined command the bundle will add the parameters for you
 
-```bash
+```
 $ ./app/console cache:clear
 $ --- ConsoleDefaultsBundle You have defined some defaults for this command
 $ --- proceeding with defaults: --no-warmup, --no-optional-warmers
