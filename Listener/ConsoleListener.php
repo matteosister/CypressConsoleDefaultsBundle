@@ -36,7 +36,7 @@ class ConsoleListener
     public function onConsoleCommand(ConsoleCommandEvent $event)
     {
         if ($this->commandDefaults->hasDefaults($event->getCommand())) {
-            $defaults = $this->commandDefaults->getDefaults($event->getCommand())->getArrayParameters();
+            $defaults = $this->commandDefaults->getDefaults($event->getCommand())->getParameters();
             $this->alertUser($event->getOutput(), $defaults, $event->getCommand()->getName());
             $input = $event->getInput();
             $tokenReader = function ($input) {

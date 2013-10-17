@@ -33,7 +33,7 @@ class CommandDefault
     public function __construct($name, array $defaults)
     {
         $this->name = $name;
-        $this->params = $defaults;
+        $this->params = $defaults['params'];
     }
 
     public function isEmpty()
@@ -73,20 +73,5 @@ class CommandDefault
     public function getParameters()
     {
         return $this->params;
-    }
-
-    /**
-     * Get Arguments as array
-     *
-     * @return array
-     */
-    public function getArrayParameters()
-    {
-        $params = array();
-        foreach ($this->params as $arg) {
-            $params[] = $arg;
-        }
-
-        return $params;
     }
 } 
