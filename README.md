@@ -32,3 +32,34 @@ $ --- ConsoleDefaultsBundle You have defined some defaults for this command
 $ --- proceeding with defaults: --no-warmup, --no-optional-warmers
 $ Clearing the cache for the dev environment with debug true
 ```
+
+### Use cases
+
+1. default to *--symlink* for assets install
+
+```yaml
+cypress_console_defaults:
+    commands:
+        "assets:install":
+            params: [ "--symlink" ]
+```
+
+2. change the folder where the fixtures are loaded
+
+```yaml
+cypress_console_defaults:
+    commands:
+        "doctrine:fixtures:load":
+            params: [ "--fixtures my/personal/folder" ]
+```
+
+3. disable cache warmup
+
+```yaml
+cypress_console_defaults:
+    commands:
+        "cache:clear":
+            params: [ "--no-warmup", "--no-optional-warmers" ]
+```
+
+other ideas?
