@@ -37,7 +37,7 @@ class ConsoleListener
     {
         if ($this->commandDefaults->hasDefaults($event->getCommand())) {
             $defaults = $this->commandDefaults->getDefaults($event->getCommand())->getArrayParameters();
-            $this->alertUser($event->getOutput(), $defaults);
+            $this->alertUser($event->getOutput(), $defaults, $event->getCommand()->getName());
             $input = $event->getInput();
             $tokenReader = function ($input) {
                 return $input->tokens;
@@ -55,9 +55,10 @@ class ConsoleListener
         }
     }
 
-    public function alertUser(OutputInterface $output, $defaults)
+    public function alertUser(OutputInterface $output, $defaults, $command)
     {
-        $output->writeln('--- <info>ConsoleDefaultsBundle</info> You have defined some defaults for this command');
+        $output->writeln('--- <info>ConsoleDefaultsBundle</info> You have defined some defaults
+            for the <info>%s</info> command', $command);
         $output->writeln(
             sprintf('--- proceeding with defaults: <comment>%s</comment>', implode(', ', $defaults))
         );
