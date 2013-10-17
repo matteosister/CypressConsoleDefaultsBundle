@@ -3,25 +3,9 @@ CypressCommandDefaultsBundle
 
 [![Build Status](https://travis-ci.org/matteosister/CypressConsoleDefaultsBundle.png?branch=master)](https://travis-ci.org/matteosister/CypressConsoleDefaultsBundle)
 
-this bundle lets you define defaults parameters for your commands. If you forget to add *--symlink* every time you run *assets:install* this bundle is for you.
+this bundle lets you define defaults parameters for your commands. It makes use of [console events](http://symfony.com/doc/current/components/console/events.html) to work. So you need at least the **2.3 LTS** version of symfony
 
-This bundles uses [console events](http://symfony.com/doc/current/components/console/events.html) to work. So you need at least the **2.3 LTS** version of symfony! Also, it uses Closure::bind function
-
-### Installation
-
-```json
-{
-    "require" {
-        "cypresslab/console-defaults-bundle": "~0.3"
-    }
-}
-```
-
-register the bundle in your AppKernel.php
-
-```php
-$bundles[] = new Cypress\ConsoleDefaultsBundle\CypressConsoleDefaultsBundle();
-```
+to install just require the **cypresslab/console-defaults-bundle** at **~0.3** version. [Read the complete instructions here](https://github.com/matteosister/CypressConsoleDefaultsBundle/blob/master/INSTALL.md)
 
 ### Usage
 
