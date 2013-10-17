@@ -35,7 +35,7 @@ $ Clearing the cache for the dev environment with debug true
 
 ### Use cases
 
-1. default to *--symlink* for assets install
+* default to *--symlink* for assets install
 
 ```yaml
 cypress_console_defaults:
@@ -44,7 +44,7 @@ cypress_console_defaults:
             params: [ "--symlink" ]
 ```
 
-2. change the folder where the fixtures are loaded
+* change the folder where the fixtures are loaded
 
 ```yaml
 cypress_console_defaults:
@@ -53,7 +53,7 @@ cypress_console_defaults:
             params: [ "--fixtures my/personal/folder" ]
 ```
 
-3. disable cache warmup
+* disable cache warmup
 
 ```yaml
 cypress_console_defaults:
