@@ -46,20 +46,6 @@ class CommandDefault
     }
 
     /**
-     * Set Name
-     *
-     * @param string $name the name variable
-     *
-     * @return $this
-     */
-    public function setName($name)
-    {
-        $this->name = $name;
-
-        return $this;
-    }
-
-    /**
      * Get Name
      *
      * @return string

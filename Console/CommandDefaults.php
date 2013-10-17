@@ -46,14 +46,4 @@ class CommandDefaults
 
         return null;
     }
-
-    public function manage(Command $command, InputInterface $input)
-    {
-        foreach ($this->getDefaults($command)->getArguments() as $argument) {
-            $input->setArgument($argument['name'], $argument['value']);
-        }
-        foreach ($this->getDefaults($command)->getOptions() as $option) {
-            $input->setOption($option['name'], $option['value']);
-        }
-    }
 }
