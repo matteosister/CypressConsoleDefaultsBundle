@@ -33,7 +33,7 @@ class CommandDefault
     public function __construct($name, array $defaults)
     {
         $this->name = $name;
-        $this->params = array_key_exists('params', $defaults) ? $defaults['params'] : array();
+        $this->params = $defaults;
     }
 
     public function isEmpty()
