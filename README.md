@@ -12,7 +12,7 @@ This bundles uses [console events](http://symfony.com/doc/current/components/con
 ```json
 {
     "require" {
-        "cypresslab/console-defaults-bundle": "~0.2"
+        "cypresslab/console-defaults-bundle": "~0.3"
     }
 }
 ```
