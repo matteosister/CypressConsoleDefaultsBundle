@@ -38,7 +38,7 @@ class CommandDefault
 
     public function isEmpty()
     {
-        return 0 === count($this->options) && 0 === count($this->arguments);
+        return 0 === count($this->params);
     }
 
     /**
@@ -70,9 +70,9 @@ class CommandDefault
      *
      * @return array
      */
-    public function getArguments()
+    public function getParameters()
     {
-        return $this->arguments;
+        return $this->params;
     }
 
     /**
@@ -80,42 +80,13 @@ class CommandDefault
      *
      * @return array
      */
-    public function getArrayArguments()
+    public function getArrayParameters()
     {
-        $args = array();
-        foreach ($this->arguments as $arg) {
-            $name = $arg['name'];
-            $val = $arg['value'];
-            $args[$name] = $val;
+        $params = array();
+        foreach ($this->params as $arg) {
+            $params[] = $arg;
         }
 
-        return $args;
-    }
-
-    /**
-     * Get Options
-     *
-     * @return array
-     */
-    public function getOptions()
-    {
-        return $this->options;
-    }
-
-    /**
-     * Get Arguments as array
-     *
-     * @return array
-     */
-    public function getArrayOptions()
-    {
-        $options = array();
-        foreach ($this->options as $option) {
-            $name = $option['name'];
-            $val = $option['value'];
-            $options[$name] = $val;
-        }
-
-        return $options;
+        return $params;
     }
 } 

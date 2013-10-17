@@ -13,6 +13,7 @@ use Symfony\Component\Console\ConsoleEvents;
 use Symfony\Component\Console\Event\ConsoleCommandEvent;
 use Symfony\Component\Console\Input\ArgvInput;
 use Symfony\Component\Console\Input\ArrayInput;
+use Symfony\Component\Console\Output\OutputInterface;
 
 /**
  * Class ConsoleListener
@@ -35,14 +36,30 @@ class ConsoleListener
     public function onConsoleCommand(ConsoleCommandEvent $event)
     {
         if ($this->commandDefaults->hasDefaults($event->getCommand())) {
-            $arrayInput = new ArrayInput(array_merge(array(
-                    'command' => $event->getCommand()->getName()
-                ),
-                $this->commandDefaults->getDefaults($event->getCommand())->getArrayArguments(),
-                $this->commandDefaults->getDefaults($event->getCommand())->getArrayOptions()
-            ));
-            $event->getCommand()->run($arrayInput, $event->getOutput());
-            die;
+            $defaults = $this->commandDefaults->getDefaults($event->getCommand())->getArrayParameters();
+            $this->alertUser($event->getOutput(), $defaults);
+            $input = $event->getInput();
+            $tokenReader = function ($input) {
+                return $input->tokens;
+            };
+            $tokenReader = \Closure::bind($tokenReader, null, $input);
+            $tokens = $tokenReader($input);
+
+            $tokensWriter = function($input, $tokens) {
+                $input->tokens = $tokens;
+            };
+            $tokensWriter = \Closure::bind($tokensWriter, null, $input);
+
+            $newTokens = array_merge($tokens, $defaults);
+            $tokensWriter($input, $newTokens);
         }
+    }
+
+    public function alertUser(OutputInterface $output, $defaults)
+    {
+        $output->writeln('--- <info>ConsoleDefaultsBundle</info> You have defined some defaults for this command');
+        $output->writeln(
+            sprintf('--- proceeding with defaults: <comment>%s</comment>', implode(', ', $defaults))
+        );
     }
 } 
