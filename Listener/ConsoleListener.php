@@ -57,8 +57,12 @@ class ConsoleListener
 
     public function alertUser(OutputInterface $output, $defaults, $command)
     {
-        $output->writeln('--- <info>ConsoleDefaultsBundle</info> You have defined some defaults
-            for the <info>%s</info> command', $command);
+        $output->writeln(
+            sprintf(
+                '--- <info>ConsoleDefaultsBundle</info> You have defined some defaults for the <info>%s</info> command',
+                $command
+            )
+        );
         $output->writeln(
             sprintf('--- proceeding with defaults: <comment>%s</comment>', implode(', ', $defaults))
         );
