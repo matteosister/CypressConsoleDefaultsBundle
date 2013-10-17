@@ -39,19 +39,11 @@ class ConsoleListener
             $defaults = $this->commandDefaults->getDefaults($event->getCommand())->getParameters();
             $this->alertUser($event->getOutput(), $defaults, $event->getCommand()->getName());
             $input = $event->getInput();
-            $tokenReader = function ($input) {
-                return $input->tokens;
-            };
-            $tokenReader = \Closure::bind($tokenReader, null, $input);
-            $tokens = $tokenReader($input);
-
-            $tokensWriter = function($input, $tokens) {
-                $input->tokens = $tokens;
-            };
-            $tokensWriter = \Closure::bind($tokensWriter, null, $input);
-
-            $newTokens = array_merge($tokens, $defaults);
-            $tokensWriter($input, $newTokens);
+            $refl = new \ReflectionObject($input);
+            $prop = $refl->getProperty('tokens');
+            $prop->setAccessible(true);
+            $tokens = $prop->getValue($input);
+            $prop->setValue($input, array_merge($tokens, $defaults));
         }
     }
 
