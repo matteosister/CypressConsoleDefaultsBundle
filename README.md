@@ -1,7 +1,7 @@
 Command Defaults Bundle
 =======================
 
-[![Build Status](https://travis-ci.org/matteosister/CypressConsoleDefaultsBundle.png?branch=master)](https://travis-ci.org/matteosister/CypressConsoleDefaultsBundle)
+[![Build Status](https://travis-ci.org/matteosister/CypressConsoleDefaultsBundle.png?branch=master)](https://travis-ci.org/matteosister/CypressConsoleDefaultsBundle) [![Scrutinizer Quality Score](https://scrutinizer-ci.com/g/matteosister/CypressConsoleDefaultsBundle/badges/quality-score.png?s=6cdbef2cf926ff5d8ffc5c1d0e11330e7cd3a143)](https://scrutinizer-ci.com/g/matteosister/CypressConsoleDefaultsBundle/)
 
 this bundle lets you define defaults parameters for your commands. It makes use of [console events](http://symfony.com/doc/current/components/console/events.html) to work. So you need at least the **2.3 LTS** version of symfony
 
