@@ -9,10 +9,7 @@
 namespace Cypress\ConsoleDefaultsBundle\Listener;
 
 use Cypress\ConsoleDefaultsBundle\Console\CommandDefaults;
-use Symfony\Component\Console\ConsoleEvents;
 use Symfony\Component\Console\Event\ConsoleCommandEvent;
-use Symfony\Component\Console\Input\ArgvInput;
-use Symfony\Component\Console\Input\ArrayInput;
 use Symfony\Component\Console\Output\OutputInterface;
 
 /**
