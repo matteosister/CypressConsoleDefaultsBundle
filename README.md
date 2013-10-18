@@ -5,6 +5,8 @@ Command Defaults Bundle
 
 this bundle lets you define defaults parameters for your commands. It makes use of [console events](http://symfony.com/doc/current/components/console/events.html) to work. So you need at least the **2.3 LTS** version of symfony
 
+#### Installation
+
 to install just require the **cypresslab/console-defaults-bundle** at **~0.3** version. [Read the complete instructions here](https://github.com/matteosister/CypressConsoleDefaultsBundle/blob/master/INSTALL.md)
 
 ### Usage
