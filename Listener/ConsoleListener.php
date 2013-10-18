@@ -43,7 +43,8 @@ class ConsoleListener
             $prop = $refl->getProperty('tokens');
             $prop->setAccessible(true);
             $tokens = $prop->getValue($input);
-            $prop->setValue($input, array_merge($tokens, $defaults));
+            $mergedValues = array_unique(array_merge($tokens, $defaults));
+            $prop->setValue($input, $mergedValues);
         }
     }
 

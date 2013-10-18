@@ -54,6 +54,10 @@ class ConsoleListenerTest extends \PHPUnit_Framework_TestCase
             array(
                 array('test' => array('params' => array('-w yes'))),
                 array('-w yes')
+            ),
+            array(
+                array('test' => array('params' => array('-w', '-w'))),
+                array('-w')
             )
         );
     }
