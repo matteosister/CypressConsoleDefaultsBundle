@@ -35,7 +35,7 @@ $ --- proceeding with defaults: --no-warmup, --no-optional-warmers
 $ Clearing the cache for the dev environment with debug true
 ```
 
-From version 0.4 you can pass a regular expression as the command name. You need to use two slash to wrap the command like this
+From version 0.4 you can pass a regular expression as the command name. You need to **use two slashes to wrap the command** like this
 
 ```yaml
 cypress_console_defaults:
