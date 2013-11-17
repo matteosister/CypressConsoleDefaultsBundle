@@ -9,6 +9,8 @@
 namespace Cypress\ConsoleDefaultsBundle\Tests;
 
 use Cypress\ConsoleDefaultsBundle\Console\CommandDefault;
+use Mockery as m;
+use Symfony\Component\Console\Command\Command;
 
 class CommandDefaultTest extends \PHPUnit_Framework_TestCase
 {
@@ -29,6 +31,15 @@ class CommandDefaultTest extends \PHPUnit_Framework_TestCase
         $this->assertTrue($cd->isEmpty());
     }
 
+    public function testMatch()
+    {
+        $cd = new CommandDefault('/test:(.*)/', array('params' => array('--one')));
+        $this->assertFalse($cd->match($this->mockCommand('')));
+        $this->assertFalse($cd->match($this->mockCommand('test')));
+        $this->assertTrue($cd->match($this->mockCommand('test:test')));
+        $this->assertTrue($cd->match($this->mockCommand('test:test:test')));
+    }
+
     public function testName()
     {
         $this->assertEquals('test', $this->commandDefault->getName());
@@ -37,5 +48,16 @@ class CommandDefaultTest extends \PHPUnit_Framework_TestCase
     public function testParams()
     {
         $this->assertEquals(array('--one', '--env=test'), $this->commandDefault->getParameters());
+    }
+
+    /**
+     * @param string $name
+     *
+     * @return Command
+     */
+    private function mockCommand($name = '')
+    {
+        return m::mock('Symfony\Component\Console\Command\Command')
+            ->shouldReceive('getName')->andReturn($name)->getMock();
     }
 }

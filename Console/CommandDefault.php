@@ -9,6 +9,8 @@
 
 namespace Cypress\ConsoleDefaultsBundle\Console;
 
+use Symfony\Component\Console\Command\Command;
+
 /**
  * Class CommandDefault
  *
@@ -40,6 +42,30 @@ class CommandDefault
         }
     }
 
+    /**
+     * @param \Symfony\Component\Console\Command\Command $command
+     *
+     * @return bool
+     */
+    public function match(Command $command)
+    {
+        if ($this->isEmpty()) {
+            return false;
+        }
+        if ($this->isRegExp()) {
+            return 1 === preg_match($this->getName(), $command->getName());
+        }
+        return $command->getName() === $this->getName();
+    }
+
+    public function isRegExp()
+    {
+        return substr($this->getName(), 0, 1) === '/';
+    }
+
+    /**
+     * @return bool
+     */
     public function isEmpty()
     {
         return 0 === count($this->params);

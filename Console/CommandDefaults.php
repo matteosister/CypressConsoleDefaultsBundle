@@ -18,6 +18,11 @@ class CommandDefaults
 {
     private $defaults;
 
+    /**
+     * class constructor
+     *
+     * @param array $configs
+     */
     public function __construct($configs)
     {
         $this->defaults = array();
@@ -26,6 +31,11 @@ class CommandDefaults
         }
     }
 
+    /**
+     * @param Command $command
+     *
+     * @return bool
+     */
     public function hasDefaults(Command $command)
     {
         return null !== $this->getDefaults($command);
@@ -35,7 +45,7 @@ class CommandDefaults
     {
         /** @var CommandDefault $default */
         foreach ($this->defaults as $default) {
-            if ($default->getName() === $command->getName() && !$default->isEmpty()) {
+            if ($default->match($command)) {
                 return $default;
             }
         }

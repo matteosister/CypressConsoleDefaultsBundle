@@ -1,4 +1,4 @@
-Command Defaults Bundle
+Console Defaults Bundle
 =======================
 
 [![Build Status](https://travis-ci.org/matteosister/CypressConsoleDefaultsBundle.png?branch=master)](https://travis-ci.org/matteosister/CypressConsoleDefaultsBundle) [![Scrutinizer Quality Score](https://scrutinizer-ci.com/g/matteosister/CypressConsoleDefaultsBundle/badges/quality-score.png?s=6cdbef2cf926ff5d8ffc5c1d0e11330e7cd3a143)](https://scrutinizer-ci.com/g/matteosister/CypressConsoleDefaultsBundle/) [![SensioLabsInsight](https://insight.sensiolabs.com/projects/430a3e9c-ef0d-4243-a22f-7d81aae2bdf2/mini.png)](https://insight.sensiolabs.com/projects/430a3e9c-ef0d-4243-a22f-7d81aae2bdf2)
@@ -34,6 +34,17 @@ $ --- ConsoleDefaultsBundle You have defined some defaults for this command
 $ --- proceeding with defaults: --no-warmup, --no-optional-warmers
 $ Clearing the cache for the dev environment with debug true
 ```
+
+From version 0.4 you can pass a regular expression as the command name. You need to use two slash to wrap the command like this
+
+```yaml
+cypress_console_defaults:
+    commands:
+        "/doctrine:(.*)/":
+            params: [ "--no-interaction"]
+```
+
+With this configuration every doctrine:... command will have the "--no-interaction" flag
 
 ### Use cases
 
