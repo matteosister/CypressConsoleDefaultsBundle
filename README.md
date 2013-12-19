@@ -76,3 +76,6 @@ cypress_console_defaults:
 ```
 
 other ideas?
+
+[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/matteosister/cypressconsoledefaultsbundle/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
+
